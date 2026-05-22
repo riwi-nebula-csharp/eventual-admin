@@ -1,11 +1,236 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<!DOCTYPE html><html class="dark" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Acceso Administrador | Gran Teatro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=JetBrains+Mono:wght@500&amp;family=Hanken+Grotesk:wght@600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-container": "#bfb2da",
+                      "surface-container-high": "#2b292f",
+                      "inverse-surface": "#e6e0e9",
+                      "primary-fixed-dim": "#cfbcff",
+                      "on-tertiary": "#3e2e00",
+                      "inverse-on-surface": "#322f35",
+                      "error": "#ffb4ab",
+                      "on-tertiary-container": "#503d00",
+                      "on-background": "#e6e0e9",
+                      "primary": "#cfbcff",
+                      "surface-container-low": "#1d1b20",
+                      "surface-dim": "#141218",
+                      "outline-variant": "#494551",
+                      "tertiary": "#e7c365",
+                      "surface": "#141218",
+                      "surface-bright": "#3b383e",
+                      "inverse-primary": "#6750a4",
+                      "background": "#141218",
+                      "on-secondary": "#342b4b",
+                      "primary-fixed": "#e9ddff",
+                      "on-surface": "#e6e0e9",
+                      "on-primary": "#381e72",
+                      "surface-container-highest": "#36343a",
+                      "secondary-container": "#4d4465",
+                      "primary-container": "#6750a4",
+                      "secondary-fixed": "#e9ddff",
+                      "secondary-fixed-dim": "#cdc0e9",
+                      "surface-variant": "#36343a",
+                      "on-primary-container": "#e0d2ff",
+                      "on-surface-variant": "#cbc4d2",
+                      "tertiary-fixed-dim": "#e7c365",
+                      "tertiary-container": "#c9a74d",
+                      "on-error": "#690005",
+                      "on-tertiary-fixed-variant": "#594400",
+                      "on-primary-fixed": "#22005d",
+                      "secondary": "#cdc0e9",
+                      "surface-tint": "#cfbcff",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-fixed": "#ffdf93",
+                      "error-container": "#93000a",
+                      "on-primary-fixed-variant": "#4f378a",
+                      "on-secondary-fixed-variant": "#4b4263",
+                      "on-tertiary-fixed": "#241a00",
+                      "outline": "#948e9c",
+                      "surface-container": "#211f24",
+                      "on-secondary-fixed": "#1f1635",
+                      "surface-container-lowest": "#0f0d13"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Manrope"],
+                      "label-sm": ["JetBrains Mono"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "body-md": ["Manrope"],
+                      "display-lg": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .admin-glass {
+            background: rgba(29, 27, 32, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 142, 156, 0.1);
+        }
+        .theatrical-shadow {
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+        }
+    </style>
 </head>
-<body>
-    <h1>Hola mundo</h1>
-</body>
-</html>
+<body class="bg-background text-on-background font-body-md min-h-screen flex items-center justify-center overflow-hidden">
+<!-- Atmospheric Background Element -->
+<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/10 rounded-full blur-[120px]"></div>
+</div>
+<!-- Login Container -->
+<main class="relative z-10 w-full max-w-[440px] px-margin-mobile md:px-0">
+<!-- Brand Identity Section -->
+<div class="text-center mb-gutter">
+<div class="inline-flex items-center justify-center w-16 h-16 bg-surface-container-high rounded-xl mb-base border border-outline-variant/30 theatrical-shadow">
+<span class="material-symbols-outlined text-primary text-[32px]">theater_comedy</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">
+                Gran Teatro <span class="text-primary font-bold">Admin</span>
+</h1>
+<p class="font-body-md text-on-surface-variant mt-2 opacity-80">
+                Gestión Operativa de Alto Rendimiento
+            </p>
+</div>
+<!-- Login Form Card -->
+<div class="admin-glass rounded-xl p-8 theatrical-shadow border border-outline-variant/20">
+<form class="space-y-gutter" id="admin-login-form">
+<!-- Email/User Field -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block" for="gmail">
+                        identificar con el Gmail
+                    </label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">person</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg py-3 pl-10 pr-4 text-on-surface font-body-md focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all outline-none" id="gmail" name="gmail" placeholder="ejemplo@gmail.com" required="" type="email">
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block" for="password">
+                            Contraseña
+                        </label>
+<a class="font-label-sm text-label-sm text-primary hover:underline transition-all" href="#">
+                            ¿Olvidó su clave?
+                        </a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg py-3 pl-10 pr-4 text-on-surface font-body-md focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all outline-none" id="password" name="password" placeholder="••••••••••••" required="" type="password">
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me & Security Chips -->
+<div class="flex items-center gap-4 py-22">
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-primary text-on-primary font-headline-md text-[18px] py-4 rounded-lg flex items-center justify-center gap-2 hover:brightness-110 active:scale-[0.98] transition-all duration-200 shadow-lg shadow-primary/20" type="submit">
+<span>Iniciar Sesion</span>
+<span class="material-symbols-outlined">login</span>
+</button>
+</form>
+<!-- Secondary Actions -->
+<div class="mt- gutter flex flex-col gap-base pt-gutter border-t border-outline-variant/30 mt-gutter">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant/60">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified_user</span> 
+                        Conexión Encriptada
+                    </span>
+<span>v4.2.0-stable</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Visual Polish: Decorative Corner Gradients -->
+
+</div>
+<script>
+        // Simple micro-interaction for form submission
+        document.getElementById('admin-login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalContent = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>Autenticando...</span>
+            `;
+
+            // Mock success redirection
+            setTimeout(() => {
+                btn.classList.add('bg-green-500');
+                btn.innerHTML = `
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <span>Acceso Concedido</span>
+                `;
+                console.log("Admin Logged In Successfully");
+            }, 1500);
+        });
+
+        // Floating particle effect for Admin atmospheric depth
+        const createParticle = () => {
+            const particle = document.createElement('div');
+            particle.className = 'fixed bg-primary/20 rounded-full pointer-events-none z-0';
+            const size = Math.random() * 4 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.top = `${Math.random() * 100}vh`;
+            particle.style.opacity = '0';
+            document.body.appendChild(particle);
+
+            const animation = particle.animate([
+                { transform: 'translateY(0) scale(1)', opacity: 0 },
+                { opacity: 0.5, offset: 0.5 },
+                { transform: `translateY(-${Math.random() * 100 + 50}px) scale(0)`, opacity: 0 }
+            ], {
+                duration: Math.random() * 3000 + 2000,
+                easing: 'ease-out'
+            });
+
+            animation.onfinish = () => particle.remove();
+        };
+
+        setInterval(createParticle, 500);
+    </script>
+<div class="fixed bg-primary/20 rounded-full pointer-events-none z-0" style="width: 3.88583px; height: 3.88583px; left: 75.6546vw; top: 40.6037vh; opacity: 0;"></div></body></html>
