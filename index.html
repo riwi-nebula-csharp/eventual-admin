@@ -144,14 +144,14 @@
 <label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block" for="password">
                             Contraseña
                         </label>
-<a class="font-label-sm text-label-sm text-primary hover:underline transition-all" href="#">
+<a class="font-label-sm text-label-sm text-primary hover:underline transition-all" href="#" id="forgot-link">
                             ¿Olvidó su clave?
                         </a>
 </div>
 <div class="relative group">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
 <input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg py-3 pl-10 pr-4 text-on-surface font-body-md focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all outline-none" id="password" name="password" placeholder="••••••••••••" required="" type="password">
-<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" type="button">
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" id="toggle-password" type="button">
 <span class="material-symbols-outlined text-[20px]">visibility</span>
 </button>
 </div>
@@ -177,35 +177,38 @@
 </div>
 </div>
 </main>
+<!-- Error Alert -->
+<div class="mt-4 hidden rounded-lg border border-error/30 bg-error/10 px-4 py-3 text-error font-body-md text-sm text-center" id="login-error"></div>
+
+<!-- Modal: Forgot Password -->
+<div class="fixed inset-0 z-[200] flex items-center justify-center hidden" id="modal-forgot">
+  <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+  <div class="relative bg-surface-container w-full max-w-sm rounded-xl border border-outline-variant shadow-2xl p-8 mx-4">
+    <button class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface" id="forgot-modal-close">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <h3 class="font-headline-md text-on-surface text-xl mb-2">Recuperar Contrasena</h3>
+    <p class="text-on-surface-variant font-body-md text-sm mb-6">Ingresa tu correo y te enviaremos un enlace para restablecer tu contrasena.</p>
+    <form class="space-y-4" id="forgot-password-form">
+      <div>
+        <label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block mb-2" for="forgot-email">Correo electronico</label>
+        <input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg py-3 px-4 text-on-surface font-body-md focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all outline-none" id="forgot-email" placeholder="ejemplo@gmail.com" required type="email">
+      </div>
+      <div class="hidden rounded-lg border border-tertiary/30 bg-tertiary/10 px-4 py-3 text-tertiary font-body-md text-sm text-center" id="forgot-success"></div>
+      <button class="w-full bg-primary text-on-primary font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:brightness-110 transition-all" type="submit">
+        <span>Enviar enlace</span>
+        <span class="material-symbols-outlined text-[18px]">send</span>
+      </button>
+    </form>
+  </div>
+</div>
+
 <!-- Visual Polish: Decorative Corner Gradients -->
 
 </div>
 <script>
         // Simple micro-interaction for form submission
-        document.getElementById('admin-login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('button[type="submit"]');
-            const originalContent = btn.innerHTML;
-            
-            btn.disabled = true;
-            btn.innerHTML = `
-                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                <span>Autenticando...</span>
-            `;
-
-            // Mock success redirection
-            setTimeout(() => {
-                btn.classList.add('bg-green-500');
-                btn.innerHTML = `
-                    <span class="material-symbols-outlined">check_circle</span>
-                    <span>Acceso Concedido</span>
-                `;
-                console.log("Admin Logged In Successfully");
-            }, 1500);
-        });
+        // Login logic handled by js/auth.js
 
         // Floating particle effect for Admin atmospheric depth
         const createParticle = () => {
@@ -233,4 +236,5 @@
 
         setInterval(createParticle, 500);
     </script>
-<div class="fixed bg-primary/20 rounded-full pointer-events-none z-0" style="width: 3.88583px; height: 3.88583px; left: 75.6546vw; top: 40.6037vh; opacity: 0;"></div></body></html>
+<div class="fixed bg-primary/20 rounded-full pointer-events-none z-0" style="width: 3.88583px; height: 3.88583px; left: 75.6546vw; top: 40.6037vh; opacity: 0;"></div><script src="js/auth.js"></script>
+</body></html>

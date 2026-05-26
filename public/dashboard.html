@@ -154,7 +154,7 @@
 <span class="material-symbols-outlined" data-icon="add">add</span>
 <span class="">Nueva Función</span>
 </button>
-<a class="text-on-surface-variant hover:text-on-surface flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors" href="#">
+<a class="text-on-surface-variant hover:text-on-surface flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors" href="#" id="logout-btn">
 <span class="material-symbols-outlined" data-icon="logout">logout</span>
 <span class="">Cerrar Sesión</span>
 </a>
@@ -182,10 +182,10 @@
 </button>
 <div class="flex items-center gap-3 ml-2 pl-4 border-l border-outline-variant">
 <div class="text-right">
-<p class="font-bold text-on-surface text-body-md leading-tight">Admin Principal</p>
-<p class="text-label-sm text-tertiary">Superusuario</p>
+<p class="font-bold text-on-surface text-body-md leading-tight" id="user-name-display">Admin Principal</p>
+<p class="text-label-sm text-tertiary" id="user-role-display">Superusuario</p>
 </div>
-<img alt="Usuario Admin" class="w-10 h-10 rounded-full border border-primary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxxh0D__zZl35XW1kRrNKX75lFfE1m0541pSqF4lj_bqwaMdjPRElATfEwVpmAENZPOWJ2E7zSBXcjlRJdnw9gq5BVe3xgyEGXOtwWmgsJ7humTwlJxi-GqO8BCKkAT_0hC7VLDhADyupYIO0hAOjtnDEUZUfy58FUZJ2GEGJNWmht4lEoEk5VfQBOD1w_KZPMsqssube81zttAftsu4991X5kIbU7sukwJfYLTBgakLuYJ58vTuVLYSNlmoKZfYIRR8HxVspD_sbB">
+<img alt="Usuario Admin" class="w-10 h-10 rounded-full border border-primary/30" id="user-avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxxh0D__zZl35XW1kRrNKX75lFfE1m0541pSqF4lj_bqwaMdjPRElATfEwVpmAENZPOWJ2E7zSBXcjlRJdnw9gq5BVe3xgyEGXOtwWmgsJ7humTwlJxi-GqO8BCKkAT_0hC7VLDhADyupYIO0hAOjtnDEUZUfy58FUZJ2GEGJNWmht4lEoEk5VfQBOD1w_KZPMsqssube81zttAftsu4991X5kIbU7sukwJfYLTBgakLuYJ58vTuVLYSNlmoKZfYIRR8HxVspD_sbB">
 </div>
 </div>
 </div>
@@ -548,4 +548,5 @@
         navigateTo('dashboard');
     });
 </script>
+<script src="../js/dashboard-auth.js"></script>
 </body></html>
