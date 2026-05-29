@@ -1,552 +1,463 @@
-<!DOCTYPE html><html class="dark" lang="es" style=""><head>
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Gran Teatro - Panel Administrativo</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Manrope:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "primary-container": "#6750a4",
-                        "surface-container-low": "#1d1b20",
-                        "surface-container-high": "#2b292f",
-                        "surface-dim": "#141218",
-                        "on-surface-variant": "#cbc4d2",
-                        "outline-variant": "#494551",
-                        "surface-tint": "#cfbcff",
-                        "outline": "#948e9c",
-                        "inverse-primary": "#6750a4",
-                        "secondary-fixed": "#e9ddff",
-                        "tertiary-fixed": "#ffdf93",
-                        "surface-container": "#211f24",
-                        "on-secondary-fixed": "#1f1635",
-                        "surface": "#141218",
-                        "secondary-container": "#4d4465",
-                        "surface-variant": "#36343a",
-                        "tertiary": "#e7c365",
-                        "primary": "#cfbcff",
-                        "on-error-container": "#ffdad6",
-                        "error": "#ffb4ab",
-                        "inverse-on-surface": "#322f35",
-                        "on-primary-fixed": "#22005d",
-                        "on-primary-container": "#e0d2ff",
-                        "on-tertiary-fixed-variant": "#594400",
-                        "on-background": "#e6e0e9",
-                        "secondary-fixed-dim": "#cdc0e9",
-                        "primary-fixed-dim": "#cfbcff",
-                        "error-container": "#93000a",
-                        "on-surface": "#e6e0e9",
-                        "tertiary-container": "#c9a74d",
-                        "surface-container-lowest": "#0f0d13",
-                        "on-tertiary": "#3e2e00",
-                        "on-primary-fixed-variant": "#4f378a",
-                        "background": "#141218",
-                        "on-error": "#690005",
-                        "inverse-surface": "#e6e0e9",
-                        "surface-bright": "#3b383e",
-                        "on-secondary-container": "#bfb2da",
-                        "tertiary-fixed-dim": "#e7c365",
-                        "surface-container-highest": "#36343a",
-                        "primary-fixed": "#e9ddff",
-                        "on-secondary-fixed-variant": "#4b4263",
-                        "on-secondary": "#342b4b",
-                        "on-tertiary-fixed": "#241a00",
-                        "on-primary": "#381e72",
-                        "on-tertiary-container": "#503d00",
-                        "secondary": "#cdc0e9"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "gutter": "24px",
-                        "base": "8px",
-                        "margin-desktop": "40px",
-                        "container-max": "1280px",
-                        "margin-mobile": "16px"
-                    },
-                    "fontFamily": {
-                        "label-sm": ["JetBrains Mono"],
-                        "body-lg": ["Manrope"],
-                        "headline-md": ["Hanken Grotesk"],
-                        "display-lg": ["Hanken Grotesk"],
-                        "body-md": ["Manrope"]
-                    },
-                    "fontSize": {
-                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
-                    }
-                },
-            },
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "primary-container": "#6750a4",
+          "surface-container-low": "#1d1b20",
+          "surface-container-high": "#2b292f",
+          "surface-dim": "#141218",
+          "on-surface-variant": "#cbc4d2",
+          "outline-variant": "#494551",
+          "surface-tint": "#cfbcff",
+          "outline": "#948e9c",
+          "inverse-primary": "#6750a4",
+          "secondary-fixed": "#e9ddff",
+          "tertiary-fixed": "#ffdf93",
+          "surface-container": "#211f24",
+          "on-secondary-fixed": "#1f1635",
+          "surface": "#141218",
+          "secondary-container": "#4d4465",
+          "surface-variant": "#36343a",
+          "tertiary": "#e7c365",
+          "primary": "#cfbcff",
+          "on-error-container": "#ffdad6",
+          "error": "#ffb4ab",
+          "inverse-on-surface": "#322f35",
+          "on-primary-fixed": "#22005d",
+          "on-primary-container": "#e0d2ff",
+          "on-tertiary-fixed-variant": "#594400",
+          "on-background": "#e6e0e9",
+          "secondary-fixed-dim": "#cdc0e9",
+          "primary-fixed-dim": "#cfbcff",
+          "error-container": "#93000a",
+          "on-surface": "#e6e0e9",
+          "tertiary-container": "#c9a74d",
+          "surface-container-lowest": "#0f0d13",
+          "on-tertiary": "#3e2e00",
+          "on-primary-fixed-variant": "#4f378a",
+          "background": "#141218",
+          "on-error": "#690005",
+          "inverse-surface": "#e6e0e9",
+          "surface-bright": "#3b383e",
+          "on-secondary-container": "#bfb2da",
+          "tertiary-fixed-dim": "#e7c365",
+          "surface-container-highest": "#36343a",
+          "primary-fixed": "#e9ddff",
+          "on-secondary-fixed-variant": "#4b4263",
+          "on-secondary": "#342b4b",
+          "on-tertiary-fixed": "#241a00",
+          "on-primary": "#381e72",
+          "on-tertiary-container": "#503d00",
+          "secondary": "#cdc0e9"
+        },
+        "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+        "spacing": {
+          "gutter": "24px", "base": "8px",
+          "margin-desktop": "40px", "container-max": "1280px", "margin-mobile": "16px"
+        },
+        "fontFamily": {
+          "label-sm": ["JetBrains Mono"],
+          "body-lg": ["Manrope"],
+          "headline-md": ["Hanken Grotesk"],
+          "display-lg": ["Hanken Grotesk"],
+          "body-md": ["Manrope"]
+        },
+        "fontSize": {
+          "label-sm": ["12px", {"lineHeight":"16px","fontWeight":"500"}],
+          "body-lg": ["18px", {"lineHeight":"28px","fontWeight":"400"}],
+          "headline-md": ["32px", {"lineHeight":"40px","fontWeight":"600"}],
+          "display-lg": ["48px", {"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"700"}],
+          "body-md": ["16px", {"lineHeight":"24px","fontWeight":"400"}]
         }
-    </script>
+      }
+    }
+  }
+</script>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .material-symbols-outlined.fill {
-            font-variation-settings: 'FILL' 1;
-        }
-        body { background-color: #141218; color: #e6e0e9; }
-        .glass-card {
-            background: rgba(33, 31, 36, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(148, 142, 156, 0.1);
-        }
-        .view-section {
-            display: none;
-            animation: fadeIn 0.4s ease-out forwards;
-        }
-        .view-section.active {
-            display: block;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .metric-trend-up { color: #81b33c; }
-        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: #1d1b20; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #494551; border-radius: 10px; }
-    </style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+  .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
+  body { background-color: #141218; color: #e6e0e9; }
+  .glass-card { background: rgba(33,31,36,0.8); backdrop-filter: blur(12px); border: 1px solid rgba(148,142,156,0.1); }
+  .view-section { display: none; animation: fadeIn 0.4s ease-out forwards; }
+  .view-section.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+  .metric-trend-up { color: #81b33c; }
+  .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: #1d1b20; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: #494551; border-radius: 10px; }
+</style>
 </head>
 <body class="font-body-md text-body-md overflow-x-hidden">
-<!-- App Shell: SideNavBar -->
+
+<!-- SideNavBar -->
 <aside class="bg-surface-container w-[280px] h-screen fixed left-0 top-0 border-r border-outline-variant flex flex-col py-margin-desktop px-4 gap-base z-50">
-<div class="mb-8 px-2">
-<h1 class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">Gran Teatro</h1>
-<p class="text-on-surface-variant text-label-sm font-label-sm uppercase tracking-widest mt-1">Gestión de Tickets</p>
-</div>
-<nav class="flex-1 flex flex-col gap-1 overflow-y-auto custom-scrollbar">
-<a class="nav-link rounded-lg flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" id="nav-dashboard" onclick="navigateTo('dashboard')">
-<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-<span class="">Dashboard</span>
-</a>
-<a class="nav-link rounded-lg flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" id="nav-funciones" onclick="navigateTo('funciones')">
-<span class="material-symbols-outlined" data-icon="theater_comedy">theater_comedy</span>
-<span class="">Funciones</span>
-</a>
-<a class="nav-link rounded-lg flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" id="nav-empleados" onclick="navigateTo('empleados')">
-<span class="material-symbols-outlined" data-icon="group">group</span>
-<span class="">Empleados</span>
-</a>
-<a class="nav-link rounded-lg flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" id="nav-reportes" onclick="navigateTo('reportes')">
-<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
-<span class="">Reportes</span>
-</a>
-<a class="nav-link rounded-lg flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-all duration-200 bg-secondary-container text-on-secondary-container font-bold" id="nav-ajustes" onclick="navigateTo('ajustes')">
-<span class="material-symbols-outlined fill" data-icon="settings">settings</span>
-<span class="">Ajustes</span>
-</a>
-</nav>
-<div class="mt-auto pt-base border-t border-outline-variant">
-<button class="w-full bg-primary text-on-primary font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 mb-4 cursor-pointer active:scale-95 transition-transform" onclick="openNewFunctionModal()">
-<span class="material-symbols-outlined" data-icon="add">add</span>
-<span class="">Nueva Función</span>
-</button>
-<a class="text-on-surface-variant hover:text-on-surface flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors" href="#" id="logout-btn">
-<span class="material-symbols-outlined" data-icon="logout">logout</span>
-<span class="">Cerrar Sesión</span>
-</a>
-</div>
+  <div class="mb-8 px-2">
+    <h1 class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">Gran Teatro</h1>
+    <p class="text-on-surface-variant text-label-sm font-label-sm uppercase tracking-widest mt-1">Gestión de Tickets</p>
+  </div>
+  <nav class="flex-1 flex flex-col gap-1 overflow-y-auto custom-scrollbar">
+    <a class="nav-link rounded-lg flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" id="nav-dashboard" onclick="navigateTo('dashboard')">
+      <span class="material-symbols-outlined">dashboard</span><span>Dashboard</span>
+    </a>
+    <a class="nav-link rounded-lg flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" id="nav-obras" onclick="navigateTo('obras')">
+      <span class="material-symbols-outlined">auto_stories</span><span>Obras</span>
+    </a>
+    <a class="nav-link rounded-lg flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" id="nav-funciones" onclick="navigateTo('funciones')">
+      <span class="material-symbols-outlined">theater_comedy</span><span>Funciones</span>
+    </a>
+    <a class="nav-link rounded-lg flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" id="nav-empleados" onclick="navigateTo('empleados')">
+      <span class="material-symbols-outlined">group</span><span>Empleados</span>
+    </a>
+    <a class="nav-link rounded-lg flex items-center gap-3 px-4 py-3 cursor-pointer active:scale-95 transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant" id="nav-ajustes" onclick="navigateTo('ajustes')">
+      <span class="material-symbols-outlined">settings</span><span>Ajustes</span>
+    </a>
+  </nav>
+  <div class="mt-auto pt-base border-t border-outline-variant">
+    <button id="btn-nueva-funcion" class="w-full bg-primary text-on-primary font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 mb-4 cursor-pointer active:scale-95 transition-transform">
+      <span class="material-symbols-outlined">add</span><span>Nueva Función</span>
+    </button>
+    <a class="text-on-surface-variant hover:text-on-surface flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors" href="#" id="logout-btn">
+      <span class="material-symbols-outlined">logout</span><span>Cerrar Sesión</span>
+    </a>
+  </div>
 </aside>
-<!-- App Shell: Main Content Area -->
+
+<!-- Main Content -->
 <main class="pl-[280px] min-h-screen">
-<!-- TopAppBar -->
-<header class="h-20 w-full sticky top-0 z-40 bg-background/80 backdrop-blur-md flex items-center justify-between pr-margin-desktop transition-all duration-300 px-base">
-<div class="flex items-center gap-4">
-<h2 class="font-headline-md text-headline-md font-semibold text-primary" id="view-title">Configuración del Sistema</h2>
-</div>
-<div class="flex items-center gap-6">
-<div class="relative hidden lg:block">
-<input class="bg-surface-container border-none rounded-full px-6 py-2 w-64 text-on-surface focus:ring-2 focus:ring-primary transition-all" placeholder="Buscar..." type="text">
-<span class="material-symbols-outlined absolute right-4 top-2 text-on-surface-variant" data-icon="search">search</span>
-</div>
-<div class="flex items-center gap-4">
-<button class="relative text-on-surface-variant hover:text-primary transition-opacity p-2">
+  <!-- TopAppBar -->
+  <header class="h-20 w-full sticky top-0 z-40 bg-background/80 backdrop-blur-md flex items-center justify-between pr-margin-desktop transition-all duration-300 px-base">
+    <div class="flex items-center gap-4">
+      <h2 class="font-headline-md text-headline-md font-semibold text-primary" id="view-title">Panel Administrativo</h2>
+    </div>
+    <div class="flex items-center gap-6">
+      <div class="flex items-center gap-3 ml-2 pl-4 border-l border-outline-variant">
+        <div class="text-right">
+          <p class="font-bold text-on-surface text-body-md leading-tight" id="user-name-display">...</p>
+          <p class="text-label-sm text-tertiary" id="user-role-display">Superusuario</p>
+        </div>
+        <div class="relative w-10 h-10">
+          <img alt="Avatar" class="w-10 h-10 rounded-full border border-primary/30 object-cover" id="user-avatar" src="">
+          <span class="avatar-fallback hidden w-10 h-10 rounded-full border border-primary/30 bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-sm absolute inset-0"></span>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
-</button>
-<button class="text-on-surface-variant hover:text-primary transition-opacity p-2">
-<span class="material-symbols-outlined" data-icon="help">help</span>
-</button>
-<div class="flex items-center gap-3 ml-2 pl-4 border-l border-outline-variant">
-<div class="text-right">
-<p class="font-bold text-on-surface text-body-md leading-tight" id="user-name-display">Admin Principal</p>
-<p class="text-label-sm text-tertiary" id="user-role-display">Superusuario</p>
-</div>
-<img alt="Usuario Admin" class="w-10 h-10 rounded-full border border-primary/30" id="user-avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxxh0D__zZl35XW1kRrNKX75lFfE1m0541pSqF4lj_bqwaMdjPRElATfEwVpmAENZPOWJ2E7zSBXcjlRJdnw9gq5BVe3xgyEGXOtwWmgsJ7humTwlJxi-GqO8BCKkAT_0hC7VLDhADyupYIO0hAOjtnDEUZUfy58FUZJ2GEGJNWmht4lEoEk5VfQBOD1w_KZPMsqssube81zttAftsu4991X5kIbU7sukwJfYLTBgakLuYJ58vTuVLYSNlmoKZfYIRR8HxVspD_sbB">
-</div>
-</div>
-</div>
-</header>
-<!-- SPA Views Container -->
-<div id="views-container">
-<!-- View: Dashboard (SCREEN_24) -->
-<section class="view-section p-margin-desktop" id="view-dashboard">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-<div class="bg-surface-container p-6 rounded-xl border border-outline-variant flex flex-col gap-2">
-<div class="flex justify-between items-start"><span class="text-on-surface-variant font-label-sm uppercase tracking-wider">Ingresos Totales</span><span class="text-primary material-symbols-outlined">payments</span></div>
-<div class="font-headline-md text-headline-md">$124,500.00</div>
-<div class="flex items-center gap-1 text-xs text-green-500 font-bold"><span class="material-symbols-outlined text-sm">trending_up</span>+12.5%</div>
-</div>
-<div class="bg-surface-container p-6 rounded-xl border border-outline-variant flex flex-col gap-2">
-<div class="flex justify-between items-start"><span class="text-on-surface-variant font-label-sm uppercase tracking-wider">Ocupación Media</span><span class="text-secondary material-symbols-outlined">event_seat</span></div>
-<div class="font-headline-md text-headline-md">78%</div>
-<div class="flex items-center gap-1 text-xs text-green-500 font-bold"><span class="material-symbols-outlined text-sm">trending_up</span>+4.2%</div>
-</div>
-<div class="bg-surface-container p-6 rounded-xl border border-outline-variant flex flex-col gap-2">
-<div class="flex justify-between items-start"><span class="text-on-surface-variant font-label-sm uppercase tracking-wider">Tickets Vendidos</span><span class="text-tertiary material-symbols-outlined">confirmation_number</span></div>
-<div class="font-headline-md text-headline-md">4,892</div>
-<div class="flex items-center gap-1 text-xs text-red-500 font-bold"><span class="material-symbols-outlined text-sm">trending_down</span>-2.1%</div>
-</div>
-<div class="bg-surface-container p-6 rounded-xl border border-outline-variant flex flex-col gap-2">
-<div class="flex justify-between items-start"><span class="text-on-surface-variant font-label-sm uppercase tracking-wider">Nuevos Miembros</span><span class="text-on-surface material-symbols-outlined">person_add</span></div>
-<div class="font-headline-md text-headline-md">156</div>
-<div class="flex items-center gap-1 text-xs text-green-500 font-bold"><span class="material-symbols-outlined text-sm">trending_up</span>+8.3%</div>
-</div>
-</div>
-<div class="grid grid-cols-12 gap-gutter">
-<div class="col-span-12 lg:col-span-8 bg-surface-container p-6 rounded-2xl border border-outline-variant">
-<div class="flex justify-between items-center mb-6">
-<h3 class="font-headline-md text-on-surface text-xl">Ventas en Tiempo Real</h3>
-<div class="flex gap-2">
-<button class="px-3 py-1 text-xs font-bold rounded bg-primary text-on-primary">DÍA</button>
-<button class="px-3 py-1 text-xs font-bold rounded bg-surface-container-high text-on-surface-variant">MES</button>
-</div>
-</div>
-<div class="h-64 flex items-end gap-3 px-2">
-<div class="flex-1 bg-primary/10 rounded-t-lg h-[20%]"></div>
-<div class="flex-1 bg-primary/10 rounded-t-lg h-[35%]"></div>
-<div class="flex-1 bg-primary/20 rounded-t-lg h-[45%]"></div>
-<div class="flex-1 bg-primary/30 rounded-t-lg h-[60%]"></div>
-<div class="flex-1 bg-primary/50 rounded-t-lg h-[40%]"></div>
-<div class="flex-1 bg-primary/70 rounded-t-lg h-[80%]"></div>
-<div class="flex-1 bg-primary rounded-t-lg h-[95%]"></div>
-</div>
-<div class="flex justify-between px-2 mt-4 text-label-sm text-on-surface-variant">
-<span class="">08:00</span><span class="">12:00</span><span class="">16:00</span><span class="">20:00</span><span class="">00:00</span>
-</div>
-</div>
-<div class="col-span-12 lg:col-span-4 bg-surface-container p-6 rounded-2xl border border-outline-variant">
-<h3 class="font-headline-md text-on-surface text-xl mb-6">Funciones Más Vendidas</h3>
-<div class="space-y-4">
-<div class="flex items-center gap-4">
-<div class="w-12 h-12 bg-surface-container-highest rounded-lg overflow-hidden flex items-center justify-center">
-<span class="material-symbols-outlined text-primary">theater_comedy</span>
-</div>
-<div class="flex-1">
-<p class="font-bold text-on-surface">La Bella y la Bestia</p>
-<p class="text-xs text-on-surface-variant">98% Ocupación</p>
-</div>
-<div class="text-right">
-<p class="font-bold text-primary">$45.2k</p>
-<p class="text-[10px] text-green-500 font-bold">+5%</p>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<div class="w-12 h-12 bg-surface-container-highest rounded-lg overflow-hidden flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary">music_note</span>
-</div>
-<div class="flex-1">
-<p class="font-bold text-on-surface">El Fantasma de la Ópera</p>
-<p class="text-xs text-on-surface-variant">85% Ocupación</p>
-</div>
-<div class="text-right">
-<p class="font-bold text-primary">$32.8k</p>
-<p class="text-[10px] text-green-500 font-bold">+12%</p>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<div class="w-12 h-12 bg-surface-container-highest rounded-lg overflow-hidden flex items-center justify-center">
-<span class="material-symbols-outlined text-tertiary">masks</span>
-</div>
-<div class="flex-1">
-<p class="font-bold text-on-surface">Hamlet</p>
-<p class="text-xs text-on-surface-variant">72% Ocupación</p>
-</div>
-<div class="text-right">
-<p class="font-bold text-primary">$28.1k</p>
-<p class="text-[10px] text-red-500 font-bold">-2%</p>
-</div>
-</div>
-</div>
-<button class="w-full mt-8 py-3 text-center text-label-sm font-bold text-primary border border-primary/20 rounded-lg hover:bg-primary/5 transition-colors">VER TODO EL REPORTE</button>
-</div>
-</div>
-</section>
-<!-- View: Funciones (SCREEN_29) -->
-<section class="view-section p-margin-desktop" id="view-funciones">
-<div class="flex items-center justify-between mb-8">
-<h3 class="font-headline-md text-headline-md">Próximas Funciones</h3>
-<div class="flex gap-2 bg-surface-container-low p-1 rounded-lg">
-<button class="bg-surface-variant p-2 rounded-md material-symbols-outlined">grid_view</button>
-<button class="p-2 rounded-md material-symbols-outlined text-on-surface-variant">list</button>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
-<!-- Event Card 1 -->
-<div class="group bg-surface-container rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-300">
-<div class="relative h-64 overflow-hidden bg-surface-container-highest flex items-center justify-center">
-<span class="material-symbols-outlined text-6xl opacity-20">image</span>
-<div class="absolute top-4 right-4 px-3 py-1 bg-primary text-on-primary rounded-full text-label-sm font-bold shadow-lg">PROGRAMADA</div>
-</div>
-<div class="p-5">
-<h4 class="font-headline-md text-body-lg mb-2">La Bella y la Bestia</h4>
-<div class="flex flex-col gap-2 mb-4">
-<div class="flex items-center gap-2 text-on-surface-variant text-body-md">
-<span class="material-symbols-outlined text-sm">calendar_today</span>
-<span class="">24 May 2024</span>
-</div>
-<div class="flex items-center gap-2 text-on-surface-variant text-body-md">
-<span class="material-symbols-outlined text-sm">meeting_room</span>
-<span class="">Sala Principal</span>
-</div>
-</div>
-<div class="mb-4">
-<div class="flex justify-between text-label-sm mb-1">
-<span class="">Ocupación</span>
-<span class="">85%</span>
-</div>
-<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
-<div class="bg-primary h-full w-[85%] rounded-full"></div>
-</div>
-</div>
-<div class="flex gap-2">
-<button class="flex-1 py-2 bg-surface-variant text-on-surface font-bold rounded-lg hover:bg-primary hover:text-on-primary transition-colors">Editar</button>
-<button class="p-2 border border-outline-variant text-on-surface-variant rounded-lg hover:text-error hover:border-error transition-colors">
-<span class="material-symbols-outlined">delete</span>
-</button>
-</div>
-</div>
-</div>
-<!-- New Event Placeholder -->
-<div class="border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center gap-4 group cursor-pointer hover:border-primary transition-colors h-full min-h-[400px]" onclick="openNewFunctionModal()">
-<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-all">
-<span class="material-symbols-outlined text-4xl">add</span>
-</div>
-<p class="font-bold text-on-surface-variant group-hover:text-primary">Crear Nuevo Evento</p>
-</div>
-</div>
-</section>
-<!-- View: Empleados (SCREEN_2) -->
-<section class="view-section p-margin-desktop space-y-gutter" id="view-empleados">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-<div>
-<h3 class="font-headline-md text-on-surface">Gestión de Empleados</h3>
-<p class="text-on-surface-variant font-body-md">Administra los accesos y permisos del personal del teatro.</p>
-</div>
-<button class="bg-primary hover:bg-opacity-90 active:scale-95 text-on-primary font-bold px-6 py-3 rounded-xl flex items-center gap-2 transition-all shadow-lg shadow-primary/10" onclick="toggleModal('modal-new-employee')">
-<span class="material-symbols-outlined">person_add</span>
-<span class="">Nuevo Empleado</span>
-</button>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
-<div class="bg-surface-container-high p-6 rounded-xl border border-outline-variant flex items-center justify-between">
-<div><p class="text-on-surface-variant font-label-sm uppercase tracking-wider">Total Staff</p><h4 class="font-display-lg text-[32px] text-on-surface mt-1">24</h4></div>
-<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[28px]">group</span></div>
-</div>
-<div class="bg-surface-container-high p-6 rounded-xl border border-outline-variant flex items-center justify-between">
-<div><p class="text-on-surface-variant font-label-sm uppercase tracking-wider">Activos</p><h4 class="font-display-lg text-[32px] text-tertiary mt-1">22</h4></div>
-<div class="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary"><span class="material-symbols-outlined text-[28px]">person_check</span></div>
-</div>
-</div>
-<div class="bg-surface-container-low rounded-xl border border-outline-variant overflow-hidden">
-<table class="w-full text-left">
-<thead class="bg-surface-container-high border-b border-outline-variant text-on-surface-variant text-[11px] uppercase tracking-widest">
-<tr><th class="px-6 py-4">ID</th><th class="px-6 py-4">Nombre / Email</th><th class="px-6 py-4">Estado</th><th class="px-6 py-4 text-right">Acciones</th></tr>
-</thead>
-<tbody class="divide-y divide-outline-variant">
-<tr class="hover:bg-surface-variant/30 transition-colors">
-<td class="px-6 py-4 font-label-sm text-on-surface-variant">EMP-001</td>
-<td class="px-6 py-4">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-xs">JE</div>
-<div><p class="font-bold text-on-surface">Juan Empleado</p><p class="text-sm text-on-surface-variant">juan@nebula.com</p></div>
-</div>
-</td>
-<td class="px-6 py-4"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-tertiary-container/20 text-tertiary-fixed border border-tertiary/20"><span class="w-1.5 h-1.5 rounded-full bg-tertiary mr-1.5"></span>Activo</span></td>
-<td class="px-6 py-4 text-right"><div class="flex items-center justify-end gap-2"><button class="material-symbols-outlined text-[18px]">edit</button><button class="material-symbols-outlined text-[18px]">block</button></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<!-- View: Reportes (SCREEN_28) -->
-<section class="view-section p-margin-desktop" id="view-reportes">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
-<div class="bg-surface-container p-6 rounded-xl border border-outline-variant flex flex-col gap-2">
-<div class="flex justify-between items-start"><span class="text-on-surface-variant font-label-sm uppercase tracking-wider">Ingresos Totales</span><span class="text-primary material-symbols-outlined">trending_up</span></div>
-<div class="font-headline-md text-headline-md">$124,500.00</div>
-<div class="text-on-tertiary-container bg-tertiary-container/20 px-2 py-0.5 rounded text-xs w-fit">+12.5% vs mes anterior</div>
-</div>
-<div class="bg-surface-container p-6 rounded-xl border border-outline-variant flex flex-col gap-2">
-<div class="flex justify-between items-start"><span class="text-on-surface-variant font-label-sm uppercase tracking-wider">Tickets Vendidos</span><span class="text-secondary material-symbols-outlined">confirmation_number</span></div>
-<div class="font-headline-md text-headline-md">4,892</div>
-</div>
-</div>
-<div class="grid grid-cols-12 gap-6 mb-10">
-<div class="col-span-12 lg:col-span-8 bg-surface-container p-8 rounded-2xl border border-outline-variant h-[400px]">
-<div class="flex justify-between items-center mb-6">
-<h3 class="font-headline-md text-on-surface text-2xl">Ingresos Mensuales</h3>
-<select class="bg-surface-container-high border-outline-variant rounded-lg text-body-md text-on-surface-variant px-4 py-1"><option>Año 2024</option></select>
-</div>
-<div class="flex items-end gap-4 h-64">
-<div class="flex-1 bg-primary/20 h-[40%] rounded-t-lg"></div>
-<div class="flex-1 bg-primary/20 h-[55%] rounded-t-lg"></div>
-<div class="flex-1 bg-primary/20 h-[45%] rounded-t-lg"></div>
-<div class="flex-1 bg-primary/20 h-[70%] rounded-t-lg"></div>
-<div class="flex-1 bg-primary h-[90%] rounded-t-lg"></div>
-<div class="flex-1 bg-primary/20 h-[65%] rounded-t-lg"></div>
-</div>
-</div>
-<div class="col-span-12 lg:col-span-4 bg-surface-container p-8 rounded-2xl border border-outline-variant h-[400px] flex flex-col gap-6">
-<h3 class="font-headline-md text-on-surface text-2xl">Segmentación</h3>
-<div class="flex-grow flex items-center justify-center relative">
-<svg class="w-48 h-48 -rotate-90"><circle class="text-surface-variant" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-width="24"></circle><circle class="text-primary" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-dasharray="502" stroke-dashoffset="150" stroke-linecap="round" stroke-width="24"></circle></svg>
-<div class="absolute inset-0 flex flex-col items-center justify-center"><span class="text-3xl font-bold">70%</span><span class="text-xs text-on-surface-variant">Fidelizados</span></div>
-</div>
-</div>
-</div>
-</section>
-<!-- View: Ajustes (SCREEN_32) -->
-<section class="view-section p-margin-desktop max-w-[1200px] mx-auto active" id="view-ajustes">
-<div class="grid grid-cols-12 gap-gutter">
-<nav class="col-span-3 flex flex-col gap-2">
-<button class="tab-btn w-full text-left px-4 py-3 rounded-lg transition-all text-on-surface-variant hover:bg-surface-variant" onclick="switchSettingsTab('profile', this)">Perfil del Administrador</button>
+  <!-- Views -->
+  <div id="views-container">
 
-</nav>
-<div class="col-span-9 space-y-6">
-<section class="settings-subview hidden bg-surface-container-low rounded-xl p-8 border border-outline-variant" id="settings-profile">
-<h3 class="font-headline-md text-on-surface text-2xl mb-4">Perfil del Administrador</h3>
-<div class="grid grid-cols-2 gap-6">
-<div class="space-y-2"><label class="font-label-sm text-on-surface-variant">Nombre Completo</label><input class="w-full bg-surface-container-highest border border-outline-variant p-3 rounded-lg text-on-surface" value="Admin Principal"></div>
-<div class="space-y-2"><label class="font-label-sm text-on-surface-variant">Correo Electrónico</label><input class="w-full bg-surface-container-highest border border-outline-variant p-3 rounded-lg text-on-surface" value="admin@granteatro.com"></div>
-</div>
-</section>
-<section class="settings-subview bg-surface-container-low rounded-xl p-8 border border-outline-variant" id="settings-notifications">
-<h3 class="font-headline-md text-on-surface text-2xl mb-6">Notificaciones del Sistema</h3>
-<div class="space-y-4">
-<div class="flex items-center justify-between p-4 bg-surface-container-highest rounded-lg">
-<div class="flex gap-4"><span class="material-symbols-outlined text-primary">sell</span><div><p class="font-bold">Alertas de Venta</p><p class="text-xs text-on-surface-variant">Notificar cada transacción importante.</p></div></div>
-<label class="relative inline-flex items-center cursor-pointer"><input checked="" class="sr-only peer" type="checkbox"><div class="w-11 h-6 bg-surface-container rounded-full peer peer-checked:bg-primary after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div></label>
-</div>
-</div>
-</section>
-</div>
-</div>
-</section>
-</div>
+    <!-- Dashboard -->
+    <section class="view-section p-margin-desktop" id="view-dashboard">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div class="bg-surface-container p-6 rounded-xl border border-outline-variant flex flex-col gap-2">
+          <div class="flex justify-between items-start"><span class="text-on-surface-variant font-label-sm uppercase tracking-wider">Total Funciones</span><span class="text-primary material-symbols-outlined">theater_comedy</span></div>
+          <div class="font-headline-md text-headline-md" id="stat-total-funciones">—</div>
+        </div>
+        <div class="bg-surface-container p-6 rounded-xl border border-outline-variant flex flex-col gap-2">
+          <div class="flex justify-between items-start"><span class="text-on-surface-variant font-label-sm uppercase tracking-wider">En Venta</span><span class="text-secondary material-symbols-outlined">sell</span></div>
+          <div class="font-headline-md text-headline-md" id="stat-en-venta">—</div>
+        </div>
+        <div class="bg-surface-container p-6 rounded-xl border border-outline-variant flex flex-col gap-2">
+          <div class="flex justify-between items-start"><span class="text-on-surface-variant font-label-sm uppercase tracking-wider">Programadas</span><span class="text-tertiary material-symbols-outlined">event</span></div>
+          <div class="font-headline-md text-headline-md" id="stat-programadas">—</div>
+        </div>
+        <div class="bg-surface-container p-6 rounded-xl border border-outline-variant flex flex-col gap-2">
+          <div class="flex justify-between items-start"><span class="text-on-surface-variant font-label-sm uppercase tracking-wider">Finalizadas</span><span class="text-on-surface material-symbols-outlined">check_circle</span></div>
+          <div class="font-headline-md text-headline-md" id="stat-finalizadas">—</div>
+        </div>
+      </div>
+      <div class="grid grid-cols-12 gap-gutter">
+        <div class="col-span-12 lg:col-span-8 bg-surface-container p-6 rounded-2xl border border-outline-variant">
+          <h3 class="font-headline-md text-on-surface text-xl mb-6">Funciones Activas</h3>
+          <div id="dashboard-active-performances" class="space-y-3">
+            <p class="text-on-surface-variant text-sm">Cargando...</p>
+          </div>
+        </div>
+        <div class="col-span-12 lg:col-span-4 bg-surface-container p-6 rounded-2xl border border-outline-variant">
+          <h3 class="font-headline-md text-on-surface text-xl mb-6">Obras Registradas</h3>
+          <div id="dashboard-top-plays" class="space-y-4">
+            <p class="text-on-surface-variant text-sm">Cargando...</p>
+          </div>
+          <button onclick="navigateTo('obras')" class="w-full mt-8 py-3 text-center text-label-sm font-bold text-primary border border-primary/20 rounded-lg hover:bg-primary/5 transition-colors">VER TODAS LAS OBRAS</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Obras -->
+    <section class="view-section p-margin-desktop" id="view-obras">
+      <div class="flex items-center justify-between mb-8">
+        <h3 class="font-headline-md text-headline-md">Obras de Teatro</h3>
+        <button id="btn-nueva-obra" class="bg-primary hover:bg-opacity-90 active:scale-95 text-on-primary font-bold px-6 py-3 rounded-xl flex items-center gap-2 transition-all shadow-lg shadow-primary/10">
+          <span class="material-symbols-outlined">add</span><span>Nueva Obra</span>
+        </button>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter" id="obras-grid">
+        <!-- Plays rendered here -->
+        <div class="new-play-placeholder border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center gap-4 group cursor-pointer hover:border-primary transition-colors min-h-[300px]" onclick="openNewPlayModal()">
+          <div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-all">
+            <span class="material-symbols-outlined text-4xl">add</span>
+          </div>
+          <p class="font-bold text-on-surface-variant group-hover:text-primary">Crear Nueva Obra</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Funciones -->
+    <section class="view-section p-margin-desktop" id="view-funciones">
+      <div class="flex items-center justify-between mb-8">
+        <h3 class="font-headline-md text-headline-md">Funciones</h3>
+      </div>
+      <div class="space-y-gutter" id="funciones-grid">
+        <!-- Cards injected by JS -->
+        <div class="new-event-placeholder border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center gap-4 group cursor-pointer hover:border-primary transition-colors min-h-[200px]" onclick="openNewPerformanceModal()">
+          <div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-all">
+            <span class="material-symbols-outlined text-4xl">add</span>
+          </div>
+          <p class="font-bold text-on-surface-variant group-hover:text-primary">Crear Nueva Función</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Empleados -->
+    <section class="view-section p-margin-desktop space-y-gutter" id="view-empleados">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <h3 class="font-headline-md text-on-surface">Gestión de Empleados</h3>
+          <p class="text-on-surface-variant font-body-md">Administra los accesos y permisos del personal del teatro.</p>
+        </div>
+        <button id="btn-nuevo-empleado" class="bg-primary hover:bg-opacity-90 active:scale-95 text-on-primary font-bold px-6 py-3 rounded-xl flex items-center gap-2 transition-all shadow-lg shadow-primary/10">
+          <span class="material-symbols-outlined">person_add</span><span>Nuevo Empleado</span>
+        </button>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+        <div class="bg-surface-container-high p-6 rounded-xl border border-outline-variant flex items-center justify-between">
+          <div><p class="text-on-surface-variant font-label-sm uppercase tracking-wider">Total Staff</p><h4 class="font-display-lg text-[32px] text-on-surface mt-1" id="emp-total">—</h4></div>
+          <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[28px]">group</span></div>
+        </div>
+        <div class="bg-surface-container-high p-6 rounded-xl border border-outline-variant flex items-center justify-between">
+          <div><p class="text-on-surface-variant font-label-sm uppercase tracking-wider">Activos</p><h4 class="font-display-lg text-[32px] text-tertiary mt-1" id="emp-activos">—</h4></div>
+          <div class="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary"><span class="material-symbols-outlined text-[28px]">person_check</span></div>
+        </div>
+      </div>
+      <div class="bg-surface-container-low rounded-xl border border-outline-variant overflow-hidden">
+        <table class="w-full text-left">
+          <thead class="bg-surface-container-high border-b border-outline-variant text-on-surface-variant text-[11px] uppercase tracking-widest">
+            <tr>
+              <th class="px-6 py-4">ID</th>
+              <th class="px-6 py-4">Nombre / Email</th>
+              <th class="px-6 py-4">Estado</th>
+              <th class="px-6 py-4 text-right">Acciones</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-outline-variant" id="employees-tbody">
+            <tr><td colspan="4" class="px-6 py-8 text-center text-on-surface-variant">Cargando...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Ajustes -->
+    <section class="view-section p-margin-desktop max-w-[1200px] mx-auto" id="view-ajustes">
+      <div class="grid grid-cols-12 gap-gutter">
+        <nav class="col-span-3 flex flex-col gap-2">
+          <button class="tab-btn w-full text-left px-4 py-3 rounded-lg transition-all bg-surface-container-high text-primary font-bold" onclick="switchSettingsTab('profile', this)">Perfil del Administrador</button>
+        </nav>
+        <div class="col-span-9 space-y-6">
+          <section class="settings-subview bg-surface-container-low rounded-xl p-8 border border-outline-variant" id="settings-profile">
+            <h3 class="font-headline-md text-on-surface text-2xl mb-4">Perfil del Administrador</h3>
+            <form id="settings-profile-form" class="grid grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="font-label-sm text-on-surface-variant">Nombre Completo</label>
+                <input id="settings-name" class="w-full bg-surface-container-highest border border-outline-variant p-3 rounded-lg text-on-surface" placeholder="Tu nombre">
+              </div>
+              <div class="space-y-2">
+                <label class="font-label-sm text-on-surface-variant">Correo Electrónico</label>
+                <input id="settings-email" class="w-full bg-surface-container-highest border border-outline-variant p-3 rounded-lg text-on-surface opacity-60" readonly placeholder="correo@ejemplo.com">
+              </div>
+              <div class="space-y-2">
+                <label class="font-label-sm text-on-surface-variant">Teléfono</label>
+                <input id="settings-phone" class="w-full bg-surface-container-highest border border-outline-variant p-3 rounded-lg text-on-surface" placeholder="Ej: 3001234567">
+              </div>
+              <div class="col-span-2 flex justify-end">
+                <button type="submit" class="px-8 py-3 bg-primary text-on-primary font-bold rounded-xl hover:bg-opacity-90 transition-colors">Guardar Cambios</button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /views-container -->
 </main>
-<!-- Modals -->
-<div class="fixed inset-0 z-[100] flex items-center justify-center hidden" id="eventModal">
-<div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="toggleModal('eventModal')"></div>
-<div class="relative bg-surface-container w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl p-8 custom-scrollbar">
-<div class="flex items-center justify-between mb-8">
-<div><h2 class="font-headline-md text-headline-md">Nueva Función</h2><p class="text-on-surface-variant">Completa los detalles para programar una nueva obra.</p></div>
-<button class="material-symbols-outlined p-2 hover:bg-surface-variant rounded-full" onclick="toggleModal('eventModal')">close</button>
+
+<!-- ── Modal: Nueva / Editar Función (performance) ── -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center hidden" id="perf-modal">
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="toggleModal('perf-modal')"></div>
+  <div class="relative bg-surface-container w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl p-8 custom-scrollbar">
+    <div class="flex items-center justify-between mb-8">
+      <div><h2 class="font-headline-md text-headline-md" id="perf-modal-title">Nueva Función</h2></div>
+      <button class="material-symbols-outlined p-2 hover:bg-surface-variant rounded-full" onclick="toggleModal('perf-modal')">close</button>
+    </div>
+    <form id="perf-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="flex flex-col gap-2 col-span-2">
+        <label class="font-label-sm text-on-surface-variant uppercase">Obra</label>
+        <select id="perf-play-id" class="bg-surface-container-high border border-outline-variant rounded-xl p-3 text-on-surface" required>
+          <option value="">Selecciona una obra...</option>
+        </select>
+      </div>
+      <div class="flex flex-col gap-2">
+        <label class="font-label-sm text-on-surface-variant uppercase">Fecha de la Función</label>
+        <input type="date" id="perf-date" class="bg-surface-container-high border border-outline-variant rounded-xl p-3 text-on-surface" required>
+      </div>
+      <div class="flex flex-col gap-2">
+        <label class="font-label-sm text-on-surface-variant uppercase">Precio de Entrada</label>
+        <input type="number" id="perf-price" min="0" step="1000" class="bg-surface-container-high border border-outline-variant rounded-xl p-3 text-on-surface" placeholder="Ej: 50000" required>
+      </div>
+      <div class="flex flex-col gap-2">
+        <label class="font-label-sm text-on-surface-variant uppercase">Hora Inicio</label>
+        <input type="time" id="perf-start-time" class="bg-surface-container-high border border-outline-variant rounded-xl p-3 text-on-surface" required>
+      </div>
+      <div class="flex flex-col gap-2">
+        <label class="font-label-sm text-on-surface-variant uppercase">Hora Fin</label>
+        <input type="time" id="perf-end-time" class="bg-surface-container-high border border-outline-variant rounded-xl p-3 text-on-surface" required>
+      </div>
+      <div class="flex flex-col gap-2">
+        <label class="font-label-sm text-on-surface-variant uppercase">Inicio Ventas</label>
+        <input type="datetime-local" id="perf-sales-start" class="bg-surface-container-high border border-outline-variant rounded-xl p-3 text-on-surface" required>
+      </div>
+      <div class="flex flex-col gap-2">
+        <label class="font-label-sm text-on-surface-variant uppercase">Cierre Ventas</label>
+        <input type="datetime-local" id="perf-sales-end" class="bg-surface-container-high border border-outline-variant rounded-xl p-3 text-on-surface" required>
+      </div>
+      <div class="col-span-2 flex gap-4 mt-4">
+        <button type="button" class="flex-1 py-3 border border-outline-variant text-on-surface rounded-xl" onclick="toggleModal('perf-modal')">Cancelar</button>
+        <button type="submit" class="flex-1 py-3 bg-primary text-on-primary font-bold rounded-xl">Guardar</button>
+      </div>
+    </form>
+  </div>
 </div>
-<form class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-<div class="flex flex-col gap-6">
-<div class="flex flex-col gap-2"><label class="font-label-sm text-on-surface-variant uppercase">Título</label><input class="bg-surface-container-high border-outline rounded-xl p-3 text-on-surface" placeholder="Ej: Hamlet"></div>
-<div class="flex flex-col gap-2"><label class="font-label-sm text-on-surface-variant uppercase">Descripción</label><textarea class="bg-surface-container-high border-outline rounded-xl p-3 text-on-surface" rows="4"></textarea></div>
+
+<!-- ── Modal: Nueva / Editar Obra (play) ── -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center hidden" id="play-modal">
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="toggleModal('play-modal')"></div>
+  <div class="relative bg-surface-container w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl p-8 custom-scrollbar">
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="font-headline-md text-headline-md" id="play-modal-title">Nueva Obra</h2>
+      <button class="material-symbols-outlined p-2 hover:bg-surface-variant rounded-full" onclick="toggleModal('play-modal')">close</button>
+    </div>
+    <form id="play-form" class="flex flex-col gap-4">
+      <div class="flex flex-col gap-2">
+        <label class="font-label-sm text-on-surface-variant uppercase">Título de la Obra</label>
+        <input type="text" id="play-name" class="bg-surface-container-high border border-outline-variant rounded-xl p-3 text-on-surface" placeholder="Ej: Hamlet" required>
+      </div>
+      <div class="flex flex-col gap-2">
+        <label class="font-label-sm text-on-surface-variant uppercase">Descripción</label>
+        <textarea id="play-description" rows="3" class="bg-surface-container-high border border-outline-variant rounded-xl p-3 text-on-surface" placeholder="Sinopsis breve..."></textarea>
+      </div>
+      <div class="flex flex-col gap-2">
+        <label class="font-label-sm text-on-surface-variant uppercase">URL del Poster</label>
+        <input type="url" id="play-poster" class="bg-surface-container-high border border-outline-variant rounded-xl p-3 text-on-surface" placeholder="https://...">
+      </div>
+      <div class="flex gap-4 mt-2">
+        <button type="button" class="flex-1 py-3 border border-outline-variant text-on-surface rounded-xl" onclick="toggleModal('play-modal')">Cancelar</button>
+        <button type="submit" class="flex-1 py-3 bg-primary text-on-primary font-bold rounded-xl">Guardar</button>
+      </div>
+    </form>
+  </div>
 </div>
-<div class="flex flex-col gap-6">
-<div class="border-2 border-dashed border-outline-variant rounded-2xl h-48 flex flex-col items-center justify-center gap-3 bg-surface-container-high cursor-pointer"><span class="material-symbols-outlined text-4xl opacity-50">cloud_upload</span><span class="text-on-surface-variant">Subir Poster</span></div>
-<div class="mt-auto flex gap-4"><button class="flex-1 py-3 border border-outline-variant text-on-surface rounded-xl" onclick="toggleModal('eventModal')" type="button">Cancelar</button><button class="flex-1 py-3 bg-primary text-on-primary font-bold rounded-xl" type="submit">Guardar</button></div>
+
+<!-- ── Modal: Nuevo / Editar Empleado ── -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/80 backdrop-blur-md hidden" id="emp-modal">
+  <div class="bg-surface-container-highest w-full max-w-lg rounded-2xl border border-outline-variant shadow-2xl p-8" onclick="event.stopPropagation()">
+    <div class="flex items-center justify-between mb-6">
+      <h4 class="font-headline-md text-[24px]" id="emp-modal-title">Nuevo Empleado</h4>
+      <button class="material-symbols-outlined p-2 hover:bg-surface-variant rounded-full" onclick="toggleModal('emp-modal')">close</button>
+    </div>
+    <form id="emp-form" class="space-y-4">
+      <input type="text" id="emp-name" class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-on-surface" placeholder="Nombre Completo" required>
+      <input type="email" id="emp-email" class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-on-surface" placeholder="Correo electrónico" required>
+      <input type="tel" id="emp-phone" class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-on-surface" placeholder="Teléfono (opcional)">
+      <input type="password" id="emp-password" class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-on-surface" placeholder="Contraseña (mín. 8 caracteres)">
+      <div class="flex flex-col gap-2">
+        <label class="font-label-sm text-on-surface-variant uppercase">Permisos</label>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" id="emp-perm-tickets" class="rounded" value="tickets">
+            <span class="text-on-surface">Tickets</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" id="emp-perm-access" class="rounded" value="access">
+            <span class="text-on-surface">Acceso</span>
+          </label>
+        </div>
+      </div>
+      <div class="flex gap-4 pt-2">
+        <button type="button" class="flex-1 py-3 border border-outline-variant rounded-xl" onclick="toggleModal('emp-modal')">Cancelar</button>
+        <button type="submit" class="flex-[2] py-3 bg-primary text-on-primary font-bold rounded-xl">Guardar</button>
+      </div>
+    </form>
+  </div>
 </div>
-</form>
-</div>
-</div>
-<div class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/80 backdrop-blur-md hidden" id="modal-new-employee">
-<div class="bg-surface-container-highest w-full max-w-lg rounded-2xl border border-outline-variant shadow-2xl p-8" onclick="event.stopPropagation()">
-<h4 class="font-headline-md text-[24px] mb-6">Nuevo Empleado</h4>
-<form class="space-y-4">
-<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-on-surface" placeholder="Nombre Completo">
-<div class="flex gap-4"><button class="flex-1 py-3 border border-outline-variant rounded-xl" onclick="toggleModal('modal-new-employee')" type="button">Cancelar</button><button class="flex-[2] py-3 bg-primary text-on-primary font-bold rounded-xl">Crear Cuenta</button></div>
-</form>
-</div>
-</div>
+
 <script>
-    // SPA Router Logic
-    function navigateTo(viewId) {
-        // Update Title
-        const viewTitles = {
-            'dashboard': 'Panel Administrativo',
-            'funciones': 'Gestión de Eventos',
-            'empleados': 'Gestión de Personal',
-            'reportes': 'Reportes y Estadísticas',
-            'ajustes': 'Configuración del Sistema'
-        };
-        document.getElementById('view-title').textContent = viewTitles[viewId];
-
-        // Manage Sections Visibility
-        const sections = document.querySelectorAll('.view-section');
-        sections.forEach(s => s.classList.remove('active'));
-        
-        const targetView = document.getElementById(`view-${viewId}`);
-        if (targetView) {
-            targetView.classList.add('active');
-        }
-
-        // Update Nav Active State
-        const links = document.querySelectorAll('.nav-link');
-        links.forEach(l => {
-            l.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'font-bold');
-            l.classList.add('text-on-surface-variant', 'hover:text-on-surface', 'hover:bg-surface-variant');
-            const icon = l.querySelector('.material-symbols-outlined');
-            if (icon) icon.classList.remove('fill');
-        });
-
-        const activeLink = document.getElementById(`nav-${viewId}`);
-        if (activeLink) {
-            activeLink.classList.add('bg-secondary-container', 'text-on-secondary-container', 'font-bold');
-            activeLink.classList.remove('text-on-surface-variant', 'hover:text-on-surface', 'hover:bg-surface-variant');
-            const activeIcon = activeLink.querySelector('.material-symbols-outlined');
-            if (activeIcon) activeIcon.classList.add('fill');
-        }
-    }
-
-    // Modal Helper
-    function toggleModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.toggle('hidden');
-        document.body.style.overflow = modal.classList.contains('hidden') ? 'auto' : 'hidden';
-    }
-
-    function openNewFunctionModal() {
-        toggleModal('eventModal');
-    }
-
-    // Settings Tab Switcher
-    function switchSettingsTab(subviewId, btn) {
-        const subviews = document.querySelectorAll('.settings-subview');
-        subviews.forEach(v => v.classList.add('hidden'));
-        document.getElementById(`settings-${subviewId}`).classList.remove('hidden');
-
-        const btns = document.querySelectorAll('.tab-btn');
-        btns.forEach(b => {
-            b.classList.remove('bg-surface-container-high', 'text-primary', 'font-bold');
-            b.classList.add('text-on-surface-variant', 'hover:bg-surface-variant');
-        });
-        btn.classList.add('bg-surface-container-high', 'text-primary', 'font-bold');
-        btn.classList.remove('text-on-surface-variant', 'hover:bg-surface-variant');
-    }
-
-    // Initialize SPA (Default Dashboard)
-    document.addEventListener('DOMContentLoaded', () => {
-        navigateTo('dashboard');
+  // SPA Router
+  function navigateTo(viewId) {
+    const viewTitles = {
+      'dashboard': 'Panel Administrativo',
+      'obras':     'Gestión de Obras',
+      'funciones': 'Gestión de Funciones',
+      'empleados': 'Gestión de Personal',
+      'ajustes':   'Configuración del Sistema',
+    };
+    document.getElementById('view-title').textContent = viewTitles[viewId] || viewId;
+    document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
+    document.getElementById(`view-${viewId}`)?.classList.add('active');
+    document.querySelectorAll('.nav-link').forEach(l => {
+      l.classList.remove('bg-secondary-container','text-on-secondary-container','font-bold');
+      l.classList.add('text-on-surface-variant','hover:text-on-surface','hover:bg-surface-variant');
+      l.querySelector('.material-symbols-outlined')?.classList.remove('fill');
     });
+    const active = document.getElementById(`nav-${viewId}`);
+    if (active) {
+      active.classList.add('bg-secondary-container','text-on-secondary-container','font-bold');
+      active.classList.remove('text-on-surface-variant','hover:text-on-surface','hover:bg-surface-variant');
+      active.querySelector('.material-symbols-outlined')?.classList.add('fill');
+    }
+  }
+
+  function toggleModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.toggle('hidden');
+    document.body.style.overflow = modal.classList.contains('hidden') ? 'auto' : 'hidden';
+  }
+
+  function switchSettingsTab(subviewId, btn) {
+    document.querySelectorAll('.settings-subview').forEach(v => v.classList.add('hidden'));
+    document.getElementById(`settings-${subviewId}`)?.classList.remove('hidden');
+    document.querySelectorAll('.tab-btn').forEach(b => {
+      b.classList.remove('bg-surface-container-high','text-primary','font-bold');
+      b.classList.add('text-on-surface-variant','hover:bg-surface-variant');
+    });
+    btn.classList.add('bg-surface-container-high','text-primary','font-bold');
+    btn.classList.remove('text-on-surface-variant','hover:bg-surface-variant');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    navigateTo('dashboard');
+  });
 </script>
 <script src="../js/dashboard-auth.js"></script>
-</body></html>
+<script type="module" src="../js/dashboard.js"></script>
+</body>
+</html>
